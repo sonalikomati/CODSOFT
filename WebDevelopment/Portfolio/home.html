@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonali Komati | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body class="dark-mode">
+  <nav class="navbar">
+<div class="logo dancing-cinzel">SONALI</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="typed-text">Sonali Komati</span></h1>
+      <p>A passionate Web Developer & MCA student based in Solapur</p>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+    <div class="hero-img">
+      <img src="profile.jpg" alt="Your Photo" />
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I’m Sonali Komati, currently pursuing my MCA from MIT Vishwaprayag University, Solapur. I'm passionate about
+      coding, problem-solving, and building innovative projects. I have hands-on experience in full-stack web
+      development, database management, and beginner-level machine learning. I'm a fast learner, eager to grow and
+      contribute to a great tech team.</p>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">React.js</div>
+      <div class="skill-card">Node.js</div>
+      <div class="skill-card">MongoDB</div>
+      <div class="skill-card">PHP</div>
+      <div class="skill-card">MySQL</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Machine Learning (Basic)</div>
+      <div class="skill-card">GIT</div>
+      <div class="skill-card">DSA</div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>📄 Desk Rejection Software Tool</h3>
+          <p><strong>Tech Stack:</strong> MongoDB, Express.js, React.js, Node.js</p>
+          <p><strong>Description:</strong> An AI-assisted tool that pre-validates research manuscripts before journal
+            submission to reduce desk rejections.</p>
+          <ul>
+            <li>Built a checklist system that verifies journal-specific formatting and criteria.</li>
+            <li>Used React for frontend validation and Node.js to generate PDF reports.</li>
+            <li>Saved researchers’ time and increased journal acceptance probability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>🤟 Indian Sign Language Recognition</h3>
+          <p><strong>Tech Stack:</strong> Python, OpenCV, CNN</p>
+          <p><strong>Description:</strong> A deep learning model that detects and translates Indian Sign Language
+            gestures in real time.</p>
+          <ul>
+            <li>Trained a CNN on a custom dataset to classify hand gestures.</li>
+            <li>Used OpenCV to capture and preprocess live video feed.</li>
+            <li>Provided instant feedback for educational and accessibility applications.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>✈️ Travel Agency Website</h3>
+          <p><strong>Tech Stack:</strong> PHP, MySQL, HTML, CSS</p>
+          <p><strong>Description:</strong> A responsive travel booking platform with admin panel for managing users and
+            packages.</p>
+          <ul>
+            <li>Designed dynamic pages using PHP and Bootstrap.</li>
+            <li>Created secure user authentication and role-based access control.</li>
+            <li>Managed user bookings and feedback using a MySQL backend.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact-form" class="contact-form-section">
+    <h2>Send Me a Message</h2>
+    <form class="contact-form" action="mailto:sonalikomati534@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <section class="resume-section" id="resume">
+    <h2>Resume</h2>
+    <a href="SonaliKomati.pdf" class="btn" download>Download Resume</a>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> sonalikomati534@gmail.com</p>
+    <p><strong>Phone:</strong> 9021831844</p>
+    <p><strong>LinkedIn:</strong> <a
+        href="https://www.linkedin.com/in/sonali-komati-69aa28328">linkedin.com/in/sonali-komati</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/sonalikomati">github.com/sonalikomati</a></p>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active-projects');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => observer.observe(card));
+  </script>
+
+  <footer class="portfolio-footer">
+    <p></p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,490 @@
+:root {
+    --bg-dark: #1c1f26;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --text-light: #e0e0e0;
+    --primary: #e73f49;
+    --highlight: #f1948a;
+    --glass-blur: blur(10px);
+    --gradient-dark: linear-gradient(135deg, #e73f49, #f1948a);
+    --transition: 0.4s ease;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.logo {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary);
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--highlight);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+/* Modern Logo using Cinzel + Dancing Script */
+.dancing-cinzel {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--primary);
+    position: relative;
+    padding-left: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+/* Underline hover animation */
+.dancing-cinzel::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--highlight);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.dancing-cinzel:hover::after {
+    width: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+section h2 {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--highlight);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all var(--transition);
+}
+
+.nav-links a:hover {
+    background: var(--gradient-dark);
+    color: #fff;
+}
+
+/* Hero Section */
+/* Hero Section */
+section {
+    padding: 4rem 1.5rem;
+    max-width: var(--max-width);
+    margin: auto;
+    text-align: center;
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 6rem;
+}
+
+.hero-content {
+    max-width: 500px;
+    flex: 1 1 300px;
+}
+
+.hero-img {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Hover Effect: Glow + Scale + Rotate */
+.hero-img img:hover {
+    transform: scale(1.07) rotate(1.5deg);
+    box-shadow: 0 10px 30px rgba(231, 63, 73, 0.4),
+        0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-family: "Cinzel", serif;
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+    font-family: "Dancing Script", cursive;
+    font-size: 2.3rem;
+}
+
+.hero-content p {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+    color: var(--text-light);
+}
+
+.hero-img {
+    position: relative;
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img::before {
+    content: "";
+    position: absolute;
+    width: 265px;
+    height: 265px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--primary), var(--highlight), var(--primary));
+    animation: rotateRing 6s linear infinite, pulseGlow 3s ease-in-out infinite;
+    z-index: 0;
+    padding: 3px;
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black 100%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), black 100%);
+    opacity: 0.6;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+        box-shadow: 0 0 10px rgba(231, 63, 73, 0.2);
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 0 20px rgba(231, 63, 73, 0.4);
+    }
+}
+
+.hero-img img {
+    position: relative;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.typed-text {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.3rem;
+    color: var(--primary);
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--highlight);
+    animation: typing 3s steps(20, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+/* Button */
+.btn {
+    display: inline-block;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 0.7rem 1.5rem;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition);
+}
+
+.btn:hover {
+    background: var(--gradient-dark);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(231, 63, 73, 0.4);
+}
+
+/* About & Contact */
+.about-section p,
+.contact-section p {
+    max-width: 700px;
+    margin: 1rem auto;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: 15px;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.skill-card:hover {
+    background: var(--gradient-dark);
+    color: white;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(231, 63, 73, 0.3);
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projects-section h2 {
+    text-align: center;
+    color: var(--highlight);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+}
+
+.projects-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 3px;
+    width: 100%;
+    background: var(--highlight);
+    border-radius: 2px;
+    animation: underline-grow 2s ease;
+}
+
+@keyframes underline-grow {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(231, 63, 73, 0.3), 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.project-content h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Bullet points */
+.project-content ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-content li {
+    margin-bottom: 0.4rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+/* Reveal Animation */
+.active-projects {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 2rem auto;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    font-size: 1rem;
+    resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #ccc;
+}
+
+.contact-form button {
+    background: var(--gradient-dark);
+    border: none;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+/* Icons */
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    fill: var(--highlight);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content,
+    .hero-img {
+        width: 100%;
+    }
+}
